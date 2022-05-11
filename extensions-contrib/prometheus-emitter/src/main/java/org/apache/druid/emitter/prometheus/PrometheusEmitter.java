@@ -107,6 +107,10 @@ public class PrometheusEmitter implements Emitter
     if (event instanceof ServiceMetricEvent) {
       emitMetric((ServiceMetricEvent) event);
     }
+
+    if (pushGateway != null) {
+      pushMetric();
+    }
   }
 
   private void emitMetric(ServiceMetricEvent metricEvent)
